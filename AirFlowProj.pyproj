@@ -1,0 +1,78 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>8ed5b6f9-a2d5-4491-ae01-a2465feaa005</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>AirFlowProj</Name>
+    <RootNamespace>AirFlowProj</RootNamespace>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="dags\common\ServiceBusHelper.py" />
+    <Compile Include="dags\common\__init__.py" />
+    <Compile Include="dags\dags\dagReceiveMeessage.py" />
+    <Compile Include="dags\dags\dagSendMeessage.py" />
+    <Compile Include="dags\dags\tuto.py" />
+    <Compile Include="dags\dags\__init__.py" />
+    <Compile Include="dags\__init__.py" />
+    <Compile Include="test\TestDags.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\TestServiceBus.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".dockerignore" />
+    <Content Include=".gitignore" />
+    <Content Include="config\airflow.cfg" />
+    <Content Include="dags\common\__pycache__\ServiceBusHelper.cpython-37.pyc" />
+    <Content Include="dags\common\__pycache__\__init__.cpython-37.pyc" />
+    <Content Include="dags\dags\__pycache__\dagSendMeessage.cpython-37.pyc" />
+    <Content Include="dags\dags\__pycache__\tuto.cpython-37.pyc" />
+    <Content Include="dags\__pycache__\dagSendMeessage.cpython-37.pyc" />
+    <Content Include="dags\__pycache__\tuto.cpython-37.pyc" />
+    <Content Include="docker-compose.yml" />
+    <Content Include="Dockerfile" />
+    <Content Include="requirements.txt" />
+    <Content Include="script\entrypoint.sh" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="config\" />
+    <Folder Include="dags\" />
+    <Folder Include="dags\common\" />
+    <Folder Include="dags\common\__pycache__\" />
+    <Folder Include="dags\dags\" />
+    <Folder Include="dags\dags\__pycache__\" />
+    <Folder Include="dags\__pycache__\" />
+    <Folder Include="test\" />
+    <Folder Include="script\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
